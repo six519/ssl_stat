@@ -6,7 +6,7 @@ from distutils.extension import Extension
 setup(name="ssl_stat",
     version="1.2",
     python_requires='<3',
-    description="Python C Language Extension To Get SSL Certificate Information",
+    description="Python C Language Extension To Get SSL Certificate Information From URL",
     author="Ferdinand Silva",
     author_email="ferdinandsilva@ferdinandsilva.com",
     url="https://github.com/six519/ssl_stat",

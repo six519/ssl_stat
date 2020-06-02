@@ -1,7 +1,7 @@
 ssl_stat
 ========
 
-Python C Language Extension To Get SSL Certificate Information 
+Python C Language Extension To Get SSL Certificate Information From URL
 
 Install Dependency (Ubuntu)
 ===========================
