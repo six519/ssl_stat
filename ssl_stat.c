@@ -13,6 +13,7 @@ char *get_second_part(char *str) {
 char *get_datetime(char *str) {
     char * retstr = (char *) malloc(30);
     char * token = strtok(str, ":");
+    strcpy(retstr, "");
     int ignore_first = 1;
     while( token != NULL ) {
         if (ignore_first) {
