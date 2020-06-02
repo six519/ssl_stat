@@ -64,7 +64,7 @@ ssl_stat_check(PyObject *self, PyObject *args) {
         if(!res) {
             struct curl_certinfo *certinfo;
             int need_break = 0;
-            char *subject, *issuer, *version, *serial_number, *expire_date, *start_date;
+            char *serial_number, *expire_date, *start_date;
 
             res = curl_easy_getinfo(curl, CURLINFO_CERTINFO, &certinfo);
 
@@ -75,18 +75,6 @@ ssl_stat_check(PyObject *self, PyObject *args) {
                     struct curl_slist *slist;
 
                     for(slist = certinfo->certinfo[i]; slist; slist = slist->next) {
-                        if (strstr(slist->data, "Subject:") != NULL) {
-                            subject = get_second_part(slist->data);
-                        }
-
-                        if (strstr(slist->data, "Issuer:") != NULL) {
-                            issuer = get_second_part(slist->data);
-                        }
-
-                        if (strstr(slist->data, "Version:") != NULL) {
-                            version = get_second_part(slist->data);
-                        }
-
                         if (strstr(slist->data, "Serial Number:") != NULL) {
                             serial_number = get_second_part(slist->data);
                         }
@@ -106,7 +94,7 @@ ssl_stat_check(PyObject *self, PyObject *args) {
                     if (need_break) {
                         curl_easy_cleanup(curl);
                         curl_global_cleanup();
-                        return Py_BuildValue("{s:s,s:s,s:s,s:s,s:s,s:s}", "subject", subject, "issuer", issuer, "version", version, "serial_number", serial_number, "start_date", start_date, "expire_date", expire_date);
+                        return Py_BuildValue("{s:s,s:s,s:s}", "serial_number", serial_number, "start_date", start_date, "expire_date", expire_date);
                     }
 
                 }

@@ -4,7 +4,7 @@ from distutils.core import setup
 from distutils.extension import Extension
 
 setup(name="ssl_stat",
-    version="1.1",
+    version="1.2",
     python_requires='<3',
     description="Python C Language Extension To Get SSL Certificate Information",
     author="Ferdinand Silva",
