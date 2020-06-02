@@ -10,14 +10,14 @@ setup(name="ssl_stat",
     author="Ferdinand Silva",
     author_email="ferdinandsilva@ferdinandsilva.com",
     url="https://github.com/six519/ssl_stat",
-    classifiers=(
+    classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'Natural Language :: English',
         'Programming Language :: Python',
 		'Programming Language :: C',
         'Topic :: Software Development :: Libraries :: Python Modules',
-    ),
+    ],
     download_url="https://github.com/six519/ssl_stat",
     ext_modules=[
         Extension("ssl_stat", 
