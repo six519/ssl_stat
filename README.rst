@@ -3,11 +3,11 @@ ssl_stat
 
 Python C Language Extension To Get SSL Certificate Information 
 
-Install Dependency
-==================
+Install Dependency (Ubuntu)
+===========================
 ::
 
-    apt install libcurl-dev
+    apt install libcurl4-openssl-dev
 
 Building and Installing
 =======================
