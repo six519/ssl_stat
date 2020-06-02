@@ -1,7 +1,13 @@
 ssl_stat
 ========
 
-Python C Language Extension To Get SSL Certificate Information
+Python C Language Extension To Get SSL Certificate Information 
+
+Install Dependency
+==================
+::
+
+    apt install libcurl-dev
 
 Building and Installing
 =======================
