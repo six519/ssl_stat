@@ -7,7 +7,7 @@ Install Dependency (Ubuntu)
 ===========================
 ::
 
-    apt install libcurl4-openssl-dev
+    apt install libcurl4-openssl-dev python3-dev gcc
 
 Building and Installing
 =======================

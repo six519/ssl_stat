@@ -1,4 +1,4 @@
-#include <python2.7/Python.h>
+#include <Python.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <curl/curl.h>
@@ -111,17 +111,35 @@ ssl_stat_check(PyObject *self, PyObject *args) {
 }
 
 static PyMethodDef PySSLStatMethods[] = {
-    {"check",  ssl_stat_check, METH_VARARGS, ""}
+    {"check",  ssl_stat_check, METH_VARARGS, ""},
+    {NULL, NULL, 0, NULL}
+};
+
+static struct PyModuleDef ssl_stat = {
+    PyModuleDef_HEAD_INIT,
+    "ssl_stat",
+    NULL,
+    -1,
+    PySSLStatMethods
 };
 
 PyMODINIT_FUNC
-initssl_stat(void){
+PyInit_ssl_stat(void){
     PyObject *m;
-    m = Py_InitModule("ssl_stat", PySSLStatMethods);
+    m = PyModule_Create(&ssl_stat);
     if (m == NULL)
-        return;
+        return NULL;
 
     PySSLStatError = PyErr_NewException("ssl_stat.Error", NULL, NULL);
-    Py_INCREF(PySSLStatError);
-    PyModule_AddObject(m, "Error", PySSLStatError);
+    Py_XINCREF(PySSLStatError);
+
+    if (PyModule_AddObject(m, "Error", PySSLStatError) < 0) {
+        Py_XDECREF(PySSLStatError);
+        Py_CLEAR(PySSLStatError);
+        Py_DECREF(m);
+        return NULL;
+    }
+
+    return m;
+
 }
