@@ -19,7 +19,7 @@ Installing Through PyPi
 =======================
 ::
 
-	pip install ssl_stat
+	pip3 install ssl_stat
 
 Python Sample Usage
 ===================
